@@ -3,8 +3,16 @@ version: "3.4"
 services:
   whoami:
     image: containous/whoami
+    networks:
+      - public
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
 
 networks:
   public:
