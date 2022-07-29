@@ -18,10 +18,14 @@ $ sudo systemctl start docker
 
 # Verify that Docker Engine is installed correctly by running the hello-world image
 $ sudo docker run hello-world
+$ curl -H Host:whoami.docker.localhost http://127.0.0.1
 ```
 
 ## Traefik Edge Router
 
 ```bash
 $ docker-compose up -d traefik
+
+# Load Balances
+$ docker-compose up -d --scale whoami=2
 ```
