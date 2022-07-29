@@ -1,22 +1,18 @@
-version: "3.4"
+version: "3"
 
 services:
-  reverse-proxy:
-    image: traefik:v2.7.0
+  traefik:
+    image: traefik:v2.8.1
     container_name: traefik
     restart: always
-    environment:
-      - TZ=Asia/Shanghai
+    command: --api.insecure=true --providers.docker
     ports:
       - "80:80"
-      - "443:443"
-    networks:
-      - traefik
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik.toml:/etc/traefik/traefik.toml
-      - ./logs:/var/log/traefik
 
-networks:
-  traefik:
-    external: true
+  whoami:
+    image: traefik/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
