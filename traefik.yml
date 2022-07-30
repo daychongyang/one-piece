@@ -1,7 +1,3 @@
-## STATIC CONFIGURATION
-log:
-  level: INFO
-
 api:
   insecure: true
   dashboard: true
@@ -15,4 +11,11 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
   file:
-    filename: "traefik.yml"
+    directory: "/etc/traefik/traefik.yml"
+
+log:
+  level: INFO
+  filePath: "/var/logs/traefik.log"
+
+accessLog:
+  filePath: "/var/logs/access.log"
