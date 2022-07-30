@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:2.360
+    container_name: "jenkins"
+    restart: always
+    environment:
+      JENKINS_OPTS: --prefix=/jenkins
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins_home:/var/jenkins_home
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jenkins.entrypoints=web"
+      - "traefik.http.routers.jenkins.rule= Host(`verdaccio.docker.localhost`) && PathPrefix(`/jenkins`)"
+
+networks:
+  default:
+    external:
+      name: $DEFAULT_NETWORK

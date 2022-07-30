@@ -66,10 +66,8 @@ auth:
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
-  taobao:
+  cnpm:
     url: https://registry.npmmirror.com/
-  tencent:
-    url: https://mirrors.cloud.tencent.com/npm/
 
 # Learn how to protect your packages
 # https://verdaccio.org/docs/protect-your-dependencies/
@@ -80,7 +78,7 @@ packages:
     access: $all
     publish: $authenticated
     unpublish: $authenticated
-    proxy: npmjs
+    proxy: cnpm
 
   "**":
     # Allow all users (including non-authenticated users) to read and
@@ -96,7 +94,7 @@ packages:
     unpublish: $authenticated
 
     # if package is not available locally, proxy requests to 'npmjs' registry
-    proxy: npmjs
+    proxy: cnpm
 
 # To improve your security configuration and avoid dependency confusion
 # consider removing the proxy property for private packages

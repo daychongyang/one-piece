@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:nightly-master
+    container_name: "verdaccio"
+    restart: always
+    environment:
+      - VERDACCIO_PORT=4873
+    volumes:
+      - "./storage:/verdaccio/storage"
+      - "./conf:/verdaccio/conf"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.verdaccio.entrypoints=web"
+      - "traefik.http.routers.verdaccio.rule=Host(`verdaccio.docker.localhost`)"
+
+networks:
+  default:
+    external:
+      name: $DEFAULT_NETWORK
