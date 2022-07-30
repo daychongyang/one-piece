@@ -8,8 +8,8 @@ services:
     environment:
       JENKINS_OPTS: --prefix=/jenkins
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins_home:/var/jenkins_home
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./jenkins_home:/var/jenkins_home"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jenkins.entrypoints=web"
