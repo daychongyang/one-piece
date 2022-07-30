@@ -29,3 +29,11 @@ $ docker-compose up -d traefik
 # Load Balances
 $ docker-compose up -d --scale whoami=2
 ```
+
+## Infrastructure
+
+### Private NPM Registry
+
+```bash
+$ docker-compose up -d verdaccio
+```

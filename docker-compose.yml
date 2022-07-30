@@ -21,3 +21,14 @@ services:
     image: traefik/whoami
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+
+  verdaccio:
+    image: verdaccio/verdaccio:5.14.0
+    container_name: "verdaccio"
+    environment:
+      - VERDACCIO_PORT=4873
+    volumes:
+      - "./verdaccio/storage:/verdaccio/storage"
+      - "./verdaccio/config:/verdaccio/conf"
+    labels:
+      - "traefik.http.routers.verdaccio.rule=Host(`verdaccio.docker.localhost`)"
