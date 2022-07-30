@@ -1,3 +1,4 @@
-/verdaccio/storage
-/jenkins/jenkins_home
-/logs
+storage
+jenkins_home
+logs
+acme.json
