@@ -10,11 +10,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./jenkins_home:/var/jenkins_home
-
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jenkins.entrypoints=web"
-      - "traefik.http.routers.jenkins.rule= Host(`verdaccio.docker.localhost`) && PathPrefix(`/jenkins`)"
+      - "traefik.http.routers.jenkins.rule=Host(`jenkins.docker.localhost`) && PathPrefix(`/jenkins`)"
 
 networks:
   default:
