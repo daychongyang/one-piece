@@ -66,35 +66,6 @@ X-Forwarded-Server: 8c53eb9d9163
 X-Real-Ip: 192.168.80.1
 ```
 
-## Local HTTPS
-
-```bash
-$ brew install mkcert
-
-$ mkcert -install
-
-$ mkdir certificates
-
-$ mkcert -key-file certificates/key.pem -cert-file certificates/cert.pem "whoami.localhost" localhost 127.0.0.1 ::1
-
-$ curl https://whoami.localhost/
-Hostname: 47c01a96c7dc
-IP: 127.0.0.1
-IP: 192.168.80.3
-RemoteAddr: 192.168.80.2:46260
-GET / HTTP/1.1
-Host: whoami.localhost
-User-Agent: curl/7.79.1
-Accept: */*
-Accept-Encoding: gzip
-X-Forwarded-For: 192.168.80.1
-X-Forwarded-Host: whoami.localhost
-X-Forwarded-Port: 443
-X-Forwarded-Proto: https
-X-Forwarded-Server: 8260b094401d
-X-Real-Ip: 192.168.80.1
-```
-
 ## Infrastructure
 
 ### Private NPM Registry
