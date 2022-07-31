@@ -15,11 +15,6 @@ providers:
   file:
     filename: "/etc/traefik/traefik.yml"
 
-tls:
-  certificates:
-    - certFile: /etc/traefik/certificates/cert.pem
-      keyFile: /etc/traefik/certificates/key.pem
-
 log:
   level: INFO
   filePath: "/var/logs/traefik.log"
