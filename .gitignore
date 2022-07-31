@@ -1,5 +1,3 @@
-storage
-jenkins_home
-logs
-acme.json
-certificates
+/verdaccio/storage
+/jenkins/jenkins_home
+/logs

@@ -87,6 +87,10 @@ $ docker-compose -f jenkins/docker-compose.yml up -d
 
 #### Jenkins Parameterized Pipeline
 
-1. Install `Jenkins Pipeline` plugins
+1. Install `Pipeline` plugins
 
-2. Install `Git` Source Code Management plugin
+2. Install `Docker` plugin
+
+3. Install `Docker Pipeline` plugin
+
+4. Install `Git` plugin

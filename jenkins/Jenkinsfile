@@ -1,15 +1,28 @@
+// Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent any
+    //  Defining execution environments 
+    agent {
+        docker {
+            image 'node:lts'
+        }
+    }
 
     stages {
+        stage('Install') {
+            steps {
+                sh 'node --version'
+            }
+        }
+
         stage('Build') { 
             steps {
                 echo 'Build'
             }
         }
-        stage('Deploy') { 
+        
+        stage('Deliver') { 
             steps {
-                echo 'Deploy'
+                echo 'Deliver'
             }
         }
     }
