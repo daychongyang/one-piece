@@ -82,3 +82,11 @@ $ curl -H Host:verdaccio.docker.localhost http://127.0.0.1/-/verdaccio/data/pack
 ```bash
 $ docker-compose -f jenkins/docker-compose.yml up -d
 ```
+
+#### Role-based Authorization Strategy
+
+#### Jenkins Parameterized Pipeline
+
+1. Install `Jenkins Pipeline` plugins
+
+2. Install `Git` Source Code Management plugin
